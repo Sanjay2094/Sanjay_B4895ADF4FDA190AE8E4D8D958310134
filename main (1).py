@@ -1,24 +1,21 @@
-#1.1 Implement a recursive function to calculate the factorial of a given number.
+class Student:
+    def __init__(self, name, roll_number, cgpa):
+        self.name =name
+        self.roll_number = roll_number
+        self.cgpa = cgpa
+        
+def sort_students(student_list):
+    sorted_students = sorted(student_list, key=lambda student: student.cgpa, reverse=True)
+    return sorted_students
 
-"""
-1! = 1 x 1
-2! = 2 x 1! --->2 x 1
-3! = 3 x 2! --->3 x 2 x 1
-. 
-. 
-10! = 10 × 9! ---> 10 × 9 × 8 ×... × 1
+students = [
+    Student("Hari", "A123", 7.8),
+    Student("srikanth","A124", 8.9),
+    Student("Saumya","A125", 9.1),
+    Student("Mahidhar","A126", 9.9),
+    ]            
 
-Formula - n × (n-1)
-"""
+sorted_students = sort_students(students)
 
-
-def fact_rec(n):
- if n==0 or n==1:
-  return 1
- else:
-   return n*fact_rec(n-1)
-
-number = int(input("Enter a value : "))
-res = fact_rec(number)
-
-print("The factorial of {} is {}.".format(number, res))
+for student in sorted_students:
+    print("Name:{}, Roll Number:{}, CGPA:{}".format(student.name,student.roll_number, student.cgpa))
